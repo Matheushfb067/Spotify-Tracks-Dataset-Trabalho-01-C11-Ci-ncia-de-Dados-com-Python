@@ -22,16 +22,25 @@ Fonte: Kaggle
 
 As 10 perguntas que irão direcionar a análise serão adicionadas nesta seção.
 
-1. Em desenvolvimento...
-2. Em desenvolvimento...
-3. Em desenvolvimento...
-4. Em desenvolvimento...
-5. Em desenvolvimento...
-6. Em desenvolvimento...
-7. Em desenvolvimento...
-8. Em desenvolvimento...
-9. Em desenvolvimento...
-10. Em desenvolvimento...
+1. Quais gêneros musicais apresentam a maior e a menor popularidade média?
+
+2. Quais características musicais apresentam maior associação com a popularidade? 
+
+3. Músicas mais dançantes e mais energéticas apresentam maior popularidade?
+
+4. Músicas acústicas ou instrumentais apresentam popularidade diferente das músicas mais convencionais? 
+
+5. Existe uma duração de música associada a uma popularidade média maior?
+
+6. Músicas com maior valência musical apresentam popularidade diferente das músicas com menor valência ?
+
+7. Músicas com conteúdo explícito apresentam popularidade diferente das músicas sem conteúdo explícito? 
+
+8. Existe relação entre o volume percebido da música e sua popularidade?
+
+9. Quais gêneros musicais apresentam os maiores e menores valores médios de andamento (BPM)?
+
+10. Os fatores associados à popularidade são os mesmos em todos os gêneros musicais?
 
 ## 🛠️ Tecnologias
 
