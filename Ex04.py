@@ -1,3 +1,7 @@
+'''
+4. Músicas acústicas ou instrumentais apresentam popularidade diferente das músicas mais convencionais?
+'''
+
 # Importação das bibliotecas
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -6,11 +10,6 @@ import numpy as np
 
 # Leitura do dataset
 df = pd.read_csv('SpotifyTracksDataset.csv')
-
-
-# 4. Músicas acústicas ou instrumentais apresentam popularidade diferente
-# das músicas mais convencionais?
-# Variáveis: acousticness, instrumentalness, popularity
 
 # Calcula a correlação entre as variáveis
 correlacao = df[

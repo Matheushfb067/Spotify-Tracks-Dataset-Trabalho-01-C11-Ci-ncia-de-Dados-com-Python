@@ -24,13 +24,15 @@ As 10 perguntas que irão direcionar a análise serão adicionadas nesta seção
 
 1. Quais gêneros musicais apresentam a maior e a menor popularidade média?
 
-2. Quais características musicais apresentam maior associação com a popularidade? 
+2. O que está mais associado à popularidade de uma música: sua dançabilidade, energia, intensidade 
+sonora, acústica ou instrumentalidade? 
 
 3. Músicas mais dançantes e mais energéticas apresentam maior popularidade?
 
 4. Músicas acústicas ou instrumentais apresentam popularidade diferente das músicas mais convencionais? 
 
-5. Existe uma duração de música associada a uma popularidade média maior?
+5. Músicas mais curtas são realmente mais populares ou existe
+uma faixa de duração que se destaca em relação às demais?
 
 6. Músicas com maior valência musical apresentam popularidade diferente das músicas com menor valência ?
 
@@ -40,7 +42,7 @@ As 10 perguntas que irão direcionar a análise serão adicionadas nesta seção
 
 9. Quais gêneros musicais apresentam os maiores e menores valores médios de andamento (BPM)?
 
-10. Os fatores associados à popularidade são os mesmos em todos os gêneros musicais?
+10. Como variam a dançabilidade, a energia e a valência das músicas pertencentes aos cinco gêneros musicais mais populares?
 
 ## 🛠️ Tecnologias
 

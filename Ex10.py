@@ -1,29 +1,35 @@
 '''
-10. Os fatores associados à popularidade são os mesmos em todos os gêneros musicais?
+10. Como variam a dançabilidade, a energia e a valência das músicas pertencentes aos 
+cinco gêneros musicais mais populares?
 '''
 
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
 
-ds_spotify = pd.read_csv("SpotifyTracksDataset.csv")
+# Leitura do dataset
+df = pd.read_csv('SpotifyTracksDataset.csv')
 
-dados = ds_spotify[["track_genre", "popularity", "danceability", "energy", "valence", "acousticness", "instrumentalness"]]
+# Cinco generos mais populares
+popularidade = df.groupby('track_genre')['popularity'].mean()
+maiores = popularidade.nlargest(5)
 
-# Calcula as correlações entre as variáveis numéricas dentro de cada gênero
-correlacoes_genero = dados.groupby("track_genre").corr(numeric_only=True)
+print('5 generos mais populares:')
+print(maiores)
 
-# Seleciona a correlação de cada fator com popularity, por gênero
-correlacoes_popularidade = (correlacoes_genero["popularity"].unstack(level=0).drop(index="popularity").T)
+# Selecionando os cinco generos
+dados = df[df['track_genre'] == maiores.index[0]]
 
-print("Correlação dos fatores com a popularidade por gênero musical:")
-print(correlacoes_popularidade.round(2))
+for genero in maiores.index[1:]:
+    grupo = df[df['track_genre'] == genero]
+    dados = pd.concat([dados, grupo])
 
-plt.figure(figsize=(10, 24))
-sns.heatmap(data=correlacoes_popularidade, cmap="coolwarm", center=0, vmin=-1, vmax=1)
+# Organizando as tres caracteristicas
+caracteristicas = dados[['track_genre', 'danceability', 'energy', 'valence']]
 
-plt.title("Correlação dos fatores com a popularidade por gênero")
-plt.xlabel("Fator musical")
-plt.ylabel("Gênero musical")
-plt.tight_layout()
+# Boxplot unico
+sns.boxplot(data=caracteristicas[['danceability', 'energy', 'valence']])
+plt.title('Dancabilidade, energia e valencia dos generos mais populares')
+plt.xlabel('Caracteristicas musicais')
+plt.ylabel('Valores')
 plt.show()

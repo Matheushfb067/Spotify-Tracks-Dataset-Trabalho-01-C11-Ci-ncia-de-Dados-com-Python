@@ -1,54 +1,43 @@
-# Importação das bibliotecas
-import matplotlib.pyplot as plt
-import seaborn as sns
+'''
+5. Músicas mais curtas são realmente mais populares ou existe uma faixa de 
+duração que se destaca em relação às demais?
+'''
+
 import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
 
 # Leitura do dataset
 df = pd.read_csv('SpotifyTracksDataset.csv')
 
+# Separando as musicas por duracao
+grupo1 = df[df['duration_ms'] < 120000]
+grupo2 = df[(df['duration_ms'] >= 120000) & (df['duration_ms'] < 180000)]
+grupo3 = df[(df['duration_ms'] >= 180000) & (df['duration_ms'] < 240000)]
+grupo4 = df[(df['duration_ms'] >= 240000) & (df['duration_ms'] < 300000)]
+grupo5 = df[df['duration_ms'] >= 300000]
 
-# 5. Existe uma duração de música associada a uma popularidade média maior?
-# Variáveis: duration_ms, popularity
+# Calculando a popularidade media
+media1 = grupo1['popularity'].mean()
+media2 = grupo2['popularity'].mean()
+media3 = grupo3['popularity'].mean()
+media4 = grupo4['popularity'].mean()
+media5 = grupo5['popularity'].mean()
 
-# Converte a duração de milissegundos para minutos
-df['duration_min'] = df['duration_ms'] / 60000
-
-# Cria faixas de duração das músicas
-df['faixa_duracao'] = pd.cut(
-    df['duration_min'],
-    bins=[0, 2, 3, 4, 5, float('inf')],
-    labels=['Até 2 min', '2 a 3 min', '3 a 4 min',
-            '4 a 5 min', 'Mais de 5 min']
-)
-
-# Calcula a popularidade média de cada faixa de duração
-popularidade_duracao = df.groupby(
-    'faixa_duracao', observed=False
-)['popularity'].mean()
-
-# Exibe os resultados
 print('Popularidade média por duração:')
-print(popularidade_duracao)
+print('Menos de 2 min:', media1)
+print('De 2 a 3 min:', media2)
+print('De 3 a 4 min:', media3)
+print('De 4 a 5 min:', media4)
+print('5 min ou mais:', media5)
 
-# Identifica a faixa com maior popularidade média
-maior_faixa = popularidade_duracao.idxmax()
-maior_media = popularidade_duracao.max()
+# Organizando os resultados
+duracoes = ['< 2 min', '2-3 min', '3-4 min', '4-5 min', '5+ min']
+medias = [media1, media2, media3, media4, media5]
 
-print('\nFaixa de duração com maior popularidade média:', maior_faixa)
-print(f'Popularidade média: {maior_media:.2f}')
-
-# Cria um gráfico de barras
+# Grafico de popularidade por duracao
 plt.figure(figsize=(10, 5))
-
-sns.barplot(
-    x=popularidade_duracao.index,
-    y=popularidade_duracao.values
-)
-
-plt.title('Popularidade Média por Faixa de Duração')
-plt.xlabel('Duração da música')
+plt.bar(duracoes, medias, color='blue')
+plt.title('Popularidade média por duração das músicas')
+plt.xlabel('Duração das músicas')
 plt.ylabel('Popularidade média')
-plt.xticks(rotation=20)
-plt.tight_layout()
 plt.show()

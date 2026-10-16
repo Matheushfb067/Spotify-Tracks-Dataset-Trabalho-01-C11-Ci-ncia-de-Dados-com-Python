@@ -1,3 +1,7 @@
+'''
+1. Quais gêneros musicais apresentam a maior e a menor popularidade média?
+'''
+
 # Importação das bibliotecas
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -6,9 +10,6 @@ import numpy as np
 
 # Leitura do dataset
 df = pd.read_csv('SpotifyTracksDataset.csv')
-
-# 1. Quais gêneros musicais apresentam a maior e a menor popularidade média?
-# Variáveis: track_genre, popularity
 
 # Calcula a popularidade média de cada gênero
 popularidade_media = df.groupby('track_genre')['popularity'].mean()

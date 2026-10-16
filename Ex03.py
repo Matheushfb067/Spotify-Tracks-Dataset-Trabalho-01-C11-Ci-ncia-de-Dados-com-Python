@@ -1,3 +1,7 @@
+'''
+3. Músicas mais dançantes e mais energéticas apresentam maior popularidade?
+'''
+
 # Importação das bibliotecas
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -6,9 +10,6 @@ import numpy as np
 
 # Leitura do dataset
 df = pd.read_csv('SpotifyTracksDataset.csv')
-
-# 3. Músicas mais dançantes e mais energéticas apresentam maior popularidade?
-# Variáveis: danceability, energy, popularity
 
 # Calcula a correlação entre as variáveis
 correlacao = df[['danceability', 'energy', 'popularity']].corr()
